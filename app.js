@@ -2,10 +2,12 @@ const form = document.querySelector('form')
 const taskInput = document.querySelector('#task')
 
 const taskList = document.querySelector('ul')
+const deleteAllTasks = document.querySelector('#del-tasks')
 
 
 form.addEventListener('submit', addTask)
 taskList.addEventListener('click', deleteTask)
+deleteAllTasks.addEventListener('click', delAllTasks)
 
 
 function addTask(e){
@@ -32,4 +34,11 @@ function deleteTask(e){
         }
     }
     e.preventDefault()
+}
+
+function delAllTasks(e){
+    //taskList.innerHTML = ''
+    while (taskList.firstChild){
+        taskList.removeChild(taskList.firstChild)
+    }
 }
