@@ -90,3 +90,16 @@ function getTasks(){
         ul.appendChild(li)
     })
 }
+
+function filterList() {
+    let tasks = document.querySelectorAll('li')
+    let search_query = document.getElementById("filterThings").value;
+    for (let i = 0; i < tasks.length; i++) {
+        if(tasks[i].innerText.slice(0, -1).toLowerCase()
+            .includes(search_query.toLowerCase())) {
+            tasks[i].hidden = false
+        } else {
+            tasks[i].hidden = true
+        }
+    }
+}
